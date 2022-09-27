@@ -104,11 +104,11 @@
                 var value = '';
                 if(element['dir'] == 'in')
                 {
-                    value = '<p class="text-success">' +element['value'] + '</p>';
+                    value = '<p class="text-success">' + (parseInt(element['value'])/100) + ' USD</p>';
                 }
                 else
                 {
-                    value = '<p class="text-danger">' +element['value'] + '</p>';
+                    value = '<p class="text-danger">' +(parseInt(element['value'])/100) *(-1) + ' USD</p>';
                 }
                 console.log(value);
                 const row = "<tr>"+

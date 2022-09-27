@@ -32,17 +32,17 @@
 		</li>
 	</ul>
 	<div class="tab-content" id="myTabContent">
-		<div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+		<div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0" style="opacity: 0.9;">
 			<div class = "row">
 				<div class="card col-sm-3" style="margin: 20px;">
 					<div class="status"></div>
-					<h3 style="padding: 10px;">Get Card Balance By Pan</h3>
-					<div class="card-body">
-						<label>Enter Card Pan</label>
+					<h3 style="padding: 10px;">Check Card Balance</h3>
+					<div class="card-body" style = "height:50%;">
+						<label>Enter The Card PAN</label>
 						<input class="form-control" type="text"  id="CardNum"/>
 					</div>
 					<div class="card-body">
-						<button type="button" class="btn btn-primary" onclick="checkBalanceById();">Check Balance</button>
+						<button type="button" class="btn btn-primary" onclick="checkBalanceById();">Submit</button>
 					</div>
 					<div class="card-body">
 						<div id="CardIdContainer"></div>
@@ -51,15 +51,15 @@
 
 				<div class="card col-sm-3" style="margin: 20px;">
 					<div class="status"></div>
-					<h3 style="padding: 10px;">Adding Funds to Card Pan by Admin</h3>
-					<div class="card-body">
-						<label>Enter The Card Pan</label>
+					<h3 style="padding: 10px;">Add Funds To Card</h3>
+					<div class="card-body" style = "height:50%;">	
+						<label>Enter The Card PAN</label>
 						<input class="form-control" type="text"  id="addFundsByAdmin-CardPan"/>
-						<label>Enter The Amount in Cent</label>
+						<label>Enter The Amount (in Cent)</label>
 						<input class="form-control" type="text"  id="addFundsByAdmin-Amount"/>
 					</div>
 					<div class="card-body">
-						<button type="button" class="btn btn-primary" onclick="addFundsByAdmin();">Add Funds</button>
+						<button type="button" class="btn btn-primary" onclick="addFundsByAdmin();">Submit</button>
 					</div>
 					<div class="card-body">
 						<div id="addFundsByAdmin-Container"></div>
@@ -70,14 +70,14 @@
 	</div>
 
 
-	<div class="tab-pane fade" id="txs-tab-pane" role="tabpanel" aria-labelledby="txs-tab" tabindex="2">
+	<div class="tab-pane fade" id="txs-tab-pane" role="tabpanel" aria-labelledby="txs-tab" tabindex="2" style="opacity: 0.9;">
 		<div style="padding: 15px;">
 			<div class="input-group mb-3">
 				<input class="form-control col-sm-3" type="text"  id="CardPan-txs"/>
 				<button type="button" class="btn btn-primary col-sm-3" onclick="GetTxsList();">GetTransactionList</button>
 			</div>
 			<div>
-				<table class="table table-bordered">
+				<table class="table table-bordered" style='background-color: #FEFEFE'>
 					<thead>
 						<tr>
 							<th>time</th>
