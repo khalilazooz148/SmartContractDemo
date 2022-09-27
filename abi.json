@@ -1,0 +1,245 @@
+[
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "testnet",
+				"type": "uint8"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "cardAddress",
+				"type": "address"
+			},
+			{
+				"internalType": "uint64",
+				"name": "cardPAN",
+				"type": "uint64"
+			}
+		],
+		"name": "addCardByAdmin",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint64",
+				"name": "cardPAN",
+				"type": "uint64"
+			}
+		],
+		"name": "addCardByUser",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "cardAddress",
+				"type": "address"
+			},
+			{
+				"internalType": "uint32",
+				"name": "amount_cents",
+				"type": "uint32"
+			}
+		],
+		"name": "addFundsByAdmin",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint32",
+				"name": "amount_cents",
+				"type": "uint32"
+			}
+		],
+		"name": "addFundsByUser",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "admin",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "balance",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint64",
+				"name": "",
+				"type": "uint64"
+			}
+		],
+		"name": "card",
+		"outputs": [
+			{
+				"internalType": "enum payments_usdc_pan.cardStatusCases",
+				"name": "cardStatus",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint16",
+				"name": "counter",
+				"type": "uint16"
+			},
+			{
+				"internalType": "address",
+				"name": "cardAddress",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint64",
+				"name": "cardPAN",
+				"type": "uint64"
+			}
+		],
+		"name": "checkBalanceByCardPAN",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "cardOwnerBalance",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint64",
+				"name": "cardPAN",
+				"type": "uint64"
+			},
+			{
+				"internalType": "uint16",
+				"name": "TxCounter",
+				"type": "uint16"
+			},
+			{
+				"internalType": "uint32",
+				"name": "amount_cents",
+				"type": "uint32"
+			},
+			{
+				"internalType": "bytes32",
+				"name": "TxDigest",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "bytes32",
+				"name": "r",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "bytes32",
+				"name": "s",
+				"type": "bytes32"
+			}
+		],
+		"name": "pay",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "payee",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint64",
+				"name": "cardPAN",
+				"type": "uint64"
+			}
+		],
+		"name": "resetCard",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint64",
+				"name": "cardPAN",
+				"type": "uint64"
+			}
+		],
+		"name": "revokeCard",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newPayee",
+				"type": "address"
+			}
+		],
+		"name": "updatePayee",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
+]
