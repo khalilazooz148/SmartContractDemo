@@ -1,10 +1,5 @@
 
-    //"wss://smart-purple-wave.matic-testnet.discover.quiknode.pro/418f09a556c7f939fe811a0cf339e3cfa93090c8/"
-    // const web3 = new Web3();
-    // const FromAddress = '0xe1caa4bd7390553e73d5da4b75964564cd757505';
-    // const privateKey = '0xf9ed0b7b1cbd3b760ec4b5addea184df6773aee07d9a694d117b056251f4cb2b';
     const contractAddress = '0x855fc1Ed2149c245B15A6EcD28409f013D99f57E';
-    // web3.eth.accounts.privateKeyToAccount(privateKey);
 
     async function loadWeb3() {
         console.log(window.ethereum)
