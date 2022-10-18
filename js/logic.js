@@ -1,5 +1,5 @@
 
-    const contractAddress = '0x855fc1Ed2149c245B15A6EcD28409f013D99f57E';
+    const contractAddress = '0x215B8AcC83169238Ad55645B70dD96d9A0250d2D';
 
     async function loadWeb3() {
         console.log(window.ethereum)
@@ -10,30 +10,12 @@
             console.log('Non-Ethereum browser detected. You should consider trying MetaMask!');
         }
     }
-    // function onRecieveConfirmation(json)
-    // {
-    //     console.log(json);
-    // }
-
-    // async function do_the_send(encoded){
-    //     var block =  await web3.eth.getBlock("latest");
-    //     var gasLimit = Math.round(block.gasLimit / block.transactions.length);
-    //     var tx = {
-    //         gas :   gasLimit,
-    //         to  :   contractAddress,
-    //         data:   encoded
-    //     }
-    //     await web3.eth.accounts.signTransaction(tx, privateKey).then(signed => {
-    //         web3.eth.sendSignedTransaction(signed.rawTransaction).on('receipt', onRecieveConfirmation)
-    //     })
-    // }
-
     async function checkBalanceById() {
         var account = document.getElementById('CardNum').value;
         const container = document.getElementById("CardIdContainer");
         try{
             var balance = await window.myContractInstance.methods.checkBalanceByCardPAN(account).call();
-            container.innerHTML = '<div class="alert alert-primary" role="alert"><tr><td><b>'+document.getElementById("CardNum").value+'</b></td><td>:</td> <td>'+`${balance / 100} USD`+'</td> </tr></div>'
+            container.innerHTML = '<div class="alert alert-primary" role="alert"><tr><td><b>'+account+'</b></td><td>:</td> <td>'+`${balance / 100} USD`+'</td> </tr></div>'
         }
         catch(err)
         {
@@ -41,22 +23,17 @@
         }
     }
 
-    async function addFundsByAdmin() {
-        var amount = document.getElementById('addFundsByAdmin-Amount').value;
-        var cardPan = document.getElementById('addFundsByAdmin-CardPan').value;
-        const container = document.getElementById("addFundsByAdmin-Container");
-
-
+    async function addFundsByUser() {
+        var amount = document.getElementById('addFundsByUser-Amount').value;
+        var cardPan = document.getElementById('addFundsByUser-CardPan').value;
+        const container = document.getElementById("addFundsByUser-Container");
         try {
-            var info = await window.myContractInstance.methods.card(cardPan).call();
-            console.log(info);
-            var json = JSON.parse(JSON.stringify(info));
             const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-            await window.myContractInstance.methods.addFundsByAdmin(json['cardAddress'],amount).send({from:accounts[0]}).on('receipt', function(data){
+            await window.myContractInstance.methods.addFundsByPAN(cardPan,amount).send({from:accounts[0]}).on('receipt', function(data){
                 var data= '{"time":"'+Math.floor(Date.now() / 1000).toString()+'","dir":"in","cardId":"'+cardPan+'","value":"'+amount+'","status":"APPROVED","hash" :"'+data['transactionHash']+'"}';
                 $.post("https://smartcontractdb-default-rtdb.firebaseio.com/"+cardPan+".json",data,function(data,status){});
             });
-            container.innerHTML = '<div class="alert alert-primary" role="alert"><b>'+document.getElementById("addFundsByAdmin-CardPan").value+' </b>: Is added</div>'
+            container.innerHTML = '<div class="alert alert-primary" role="alert"><b>'+cardPan+' </b>: Is added</div>'
         }
         catch(err)
         {

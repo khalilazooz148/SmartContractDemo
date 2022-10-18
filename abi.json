@@ -2,17 +2,6 @@
 	{
 		"inputs": [
 			{
-				"internalType": "uint8",
-				"name": "testnet",
-				"type": "uint8"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "constructor"
-	},
-	{
-		"inputs": [
-			{
 				"internalType": "address",
 				"name": "cardAddress",
 				"type": "address"
@@ -49,9 +38,9 @@
 				"type": "address"
 			},
 			{
-				"internalType": "uint32",
+				"internalType": "uint48",
 				"name": "amount_cents",
-				"type": "uint32"
+				"type": "uint48"
 			}
 		],
 		"name": "addFundsByAdmin",
@@ -62,12 +51,105 @@
 	{
 		"inputs": [
 			{
-				"internalType": "uint32",
+				"internalType": "uint64",
+				"name": "cardPAN",
+				"type": "uint64"
+			},
+			{
+				"internalType": "uint48",
 				"name": "amount_cents",
-				"type": "uint32"
+				"type": "uint48"
 			}
 		],
-		"name": "addFundsByUser",
+		"name": "addFundsByPAN",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint64",
+				"name": "cardPAN",
+				"type": "uint64"
+			},
+			{
+				"internalType": "uint16",
+				"name": "TxCounter",
+				"type": "uint16"
+			},
+			{
+				"internalType": "uint48",
+				"name": "amount_cents",
+				"type": "uint48"
+			},
+			{
+				"internalType": "bytes32",
+				"name": "TxDigest",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "bytes32",
+				"name": "r",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "bytes32",
+				"name": "s",
+				"type": "bytes32"
+			}
+		],
+		"name": "pay",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint64",
+				"name": "cardPAN",
+				"type": "uint64"
+			}
+		],
+		"name": "resetCard",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint64",
+				"name": "cardPAN",
+				"type": "uint64"
+			}
+		],
+		"name": "revokeCard",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "testnet",
+				"type": "uint8"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newPayee",
+				"type": "address"
+			}
+		],
+		"name": "updatePayee",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -153,44 +235,6 @@
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "uint64",
-				"name": "cardPAN",
-				"type": "uint64"
-			},
-			{
-				"internalType": "uint16",
-				"name": "TxCounter",
-				"type": "uint16"
-			},
-			{
-				"internalType": "uint32",
-				"name": "amount_cents",
-				"type": "uint32"
-			},
-			{
-				"internalType": "bytes32",
-				"name": "TxDigest",
-				"type": "bytes32"
-			},
-			{
-				"internalType": "bytes32",
-				"name": "r",
-				"type": "bytes32"
-			},
-			{
-				"internalType": "bytes32",
-				"name": "s",
-				"type": "bytes32"
-			}
-		],
-		"name": "pay",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"inputs": [],
 		"name": "payee",
 		"outputs": [
@@ -201,45 +245,6 @@
 			}
 		],
 		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint64",
-				"name": "cardPAN",
-				"type": "uint64"
-			}
-		],
-		"name": "resetCard",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint64",
-				"name": "cardPAN",
-				"type": "uint64"
-			}
-		],
-		"name": "revokeCard",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "newPayee",
-				"type": "address"
-			}
-		],
-		"name": "updatePayee",
-		"outputs": [],
-		"stateMutability": "nonpayable",
 		"type": "function"
 	}
 ]
