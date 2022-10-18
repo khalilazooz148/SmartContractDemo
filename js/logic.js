@@ -29,7 +29,7 @@
         const container = document.getElementById("addFundsByUser-Container");
         try {
             const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-            await window.myContractInstance.methods.addFundsByPAN(cardPan,amount).send({from:accounts[0]}).on('receipt', function(data){
+            await window.myContractInstance.methods.addFundsByPAN(cardPan,(amount*1000)).send({from:accounts[0]}).on('receipt', function(data){
                 var data= '{"time":"'+Math.floor(Date.now() / 1000).toString()+'","dir":"in","cardId":"'+cardPan+'","value":"'+amount+'","status":"APPROVED","hash" :"'+data['transactionHash']+'"}';
                 $.post("https://smartcontractdb-default-rtdb.firebaseio.com/"+cardPan+".json",data,function(data,status){});
             });
